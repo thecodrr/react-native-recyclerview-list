@@ -1,13 +1,13 @@
 package com.github.godness84.RNRecyclerViewList;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import java.util.Map;
 
 import android.graphics.PointF;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
