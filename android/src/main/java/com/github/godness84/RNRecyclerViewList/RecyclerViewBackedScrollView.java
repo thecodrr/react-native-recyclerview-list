@@ -240,14 +240,15 @@ public class RecyclerViewBackedScrollView extends RecyclerView {
             getReactContext().getNativeModule(UIManagerModule.class).getEventDispatcher()
                     .dispatchEvent(ScrollEvent.obtain(
                             getId(),
-                            System.currentTimeMillis(),
                             ScrollEventType.SCROLL,
                             0, /* offsetX = 0, horizontal scrolling only */
                             computeVerticalScrollOffset(),
                             mOnScrollDispatchHelper.getXFlingVelocity(),
                             mOnScrollDispatchHelper.getYFlingVelocity(),
                             getWidth(),
-                            computeVerticalScrollRange()));
+                            computeVerticalScrollRange(),
+                            getWidth(),
+                            getHeight()));
         }
 
         final int firstIndex = ((LinearLayoutManager) getLayoutManager()).findFirstVisibleItemPosition();
@@ -310,14 +311,15 @@ public class RecyclerViewBackedScrollView extends RecyclerView {
             getReactContext().getNativeModule(UIManagerModule.class).getEventDispatcher()
                     .dispatchEvent(ScrollEvent.obtain(
                             getId(),
-                            System.currentTimeMillis(),
                             ScrollEventType.BEGIN_DRAG,
                             0, /* offsetX = 0, horizontal scrolling only */
                             computeVerticalScrollOffset(),
                             0, // xVelocity
                             0, // yVelocity
                             getWidth(),
-                            computeVerticalScrollRange()));
+                            computeVerticalScrollRange(),
+                            getWidth(),
+                            getHeight()));
             return true;
         }
 
@@ -333,14 +335,15 @@ public class RecyclerViewBackedScrollView extends RecyclerView {
             getReactContext().getNativeModule(UIManagerModule.class).getEventDispatcher()
                     .dispatchEvent(ScrollEvent.obtain(
                             getId(),
-                            System.currentTimeMillis(),
                             ScrollEventType.END_DRAG,
                             0, /* offsetX = 0, horizontal scrolling only */
                             computeVerticalScrollOffset(),
                             mVelocityHelper.getXVelocity(),
                             mVelocityHelper.getYVelocity(),
                             getWidth(),
-                            computeVerticalScrollRange()));
+                            computeVerticalScrollRange(),
+                            getWidth(),
+                            getHeight()));
         }
         return super.onTouchEvent(ev);
     }

@@ -18,11 +18,6 @@ public class RNRecyclerviewListPackage implements ReactPackage {
     }
 
     @Override
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return null;
-    }
-
-    @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
                 new RecyclerViewBackedScrollViewManager(),
